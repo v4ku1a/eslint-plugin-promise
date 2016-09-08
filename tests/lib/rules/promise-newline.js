@@ -35,7 +35,9 @@ ruleTester.run("promise-newline", rule, {
         `promise
         .then( console.log(1) )
         .then( console.log(1) )
-        .catch( console.log(1) );`
+        .catch( console.log(1) );`,
+
+        `this.message = greeter.say('hello');`
     ],
 
     invalid: [
@@ -62,7 +64,7 @@ ruleTester.run("promise-newline", rule, {
             }]
         },
         {
-            code: "promise.   then( console.log(1) ).   then( console.log(1) );",
+            code: "promise    .then( console.log(1) )    .then( console.log(1) );",
             errors: [{
                 message: ".then and .catch must be on new line",
                 type: "ExpressionStatement"
